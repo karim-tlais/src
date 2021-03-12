@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Welcome to Pet Diary</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" >
+
+  </head>
+
+  <body>
+    <nav style="margin-top:25px;margin-left:150px">
+      <a class="btn btn-primary" href="{{ url_for('vaccination.vaccination_route') }}">Vaccination record</a>
+      <a class="btn btn-primary" href="{{ url_for('logout.logout_route') }}">Log Out</a>
+    </nav>
+    <br>
+
+    <div class="container theme-showcase" role="main">
+
+      <div style="color:#fff; background-color:rgb(18, 49, 117)", class="jumbotron">
+        <h1>Pet details</h1>  
+      </div>
+
+      <nav style="margin-top:25px;margin-bottom:45px">
+        <a class="btn btn-primary" href="{{ url_for('profile.profile_add') }}">Add pet details</a>
+      </nav>  
+      <!--for loop starts-->
+      {% for r in result %}
+
+      <table style="width:100%" border="1">
+        <tr>
+          <th>Pet Name:</th>
+          <td>{{r.pet_name }}</td>
+        </tr>
+        <tr>
+          <th>Pet breed</th>
+          <td>{{r.pet_breed }}</td>
+        </tr>
+        <tr>
+          <th>Pet DOB</th>
+          <td>{{r.pet_dob }}</td>
+        </tr>
+        <tr>
+          <th>Pet sex</th>
+          <td>{{r.pet_sex }}</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+
+
+      {% endfor %}
+
+      <!-- for loop ends here..-->
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

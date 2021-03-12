@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vaccination record</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" >
+
+  </head>
+
+  <body>
+    <nav style="margin-top:25px;margin-left:150px">
+      <a class="btn btn-primary" href="{{ url_for('index.index_load') }}">Pet Details</a>
+      
+      
+
+    </nav>
+    <br>
+
+    <div class="container theme-showcase" role="main">
+
+      <div style="color:#fff; background-color:rgb(18, 49, 117)", class="jumbotron">
+        <h1>Vaccination record</h1>
+      </div>
+      <nav style="margin-top:25px;margin-bottom:45px">
+        <a class="btn btn-primary" href="{{ url_for('vaccine.vaccine_route') }}">Add vaccination details</a>
+      </nav>
+      <!--for loop starts-->
+      {% for r in result %}
+
+
+      <table style="width:100%" border="1">
+        <tr>
+          <th>Vaccine</th>
+          <td>{{r.vaccine }}</td>
+        </tr>
+        <tr>
+          <th>Vaccination date</th>
+          <td>{{r.date }}</td>
+        </tr>
+        <tr>
+          <th>Next due date</th>
+          <td>{{r.next_due}}</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+
+      {% endfor %}
+
+      <!-- for loop ends here..-->
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
